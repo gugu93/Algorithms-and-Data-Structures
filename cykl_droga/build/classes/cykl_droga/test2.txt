@@ -1,0 +1,6 @@
+ 5                     = n  d
+   0 1 1 1 1           : A  4  do P3 dołożona
+   1 0 2 1 0           : B  4  druga krawędź
+   1 2 0 1 0           : C  4  BC
+   1 1 1 0 1           : D  4
+   1 0 0 1 0           : E  2

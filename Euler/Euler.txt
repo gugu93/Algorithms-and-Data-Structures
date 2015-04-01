@@ -1,0 +1,132 @@
+Przyk³adowe dane i wyniki do zadania 07
+
+Przewa¿nie etykietami wierzcho³ków grafu G=(V,E)
+s¹ kolejne liczby ca³kowite. Gdy |V|<10, to wypisanie
+œcie¿ki:  1->3->6->4  mo¿na skróciæ do: 1364 .
+Przy dwucyfrowych etykietach do wypisania œcie¿ki
+musi siê u¿yæ jakiegoœ separatora (, lub ->).
+Warto przyj¹æ konwencjê, A=1, B=2, ... , Z=26.
+Wówczas skrócony zapis œcie¿ki istnieje dla |V|<27.
+Tak¹ konwencjê przyj¹³em w poni¿szych przyk³adach.
+
+ - Multigraf nieskierowany.
+
+Przyk³ad 1 - mosty w Królewcu  
+                               |V|=4   |E|=7
+ 4                     = n  d
+   0 0 2 1             : A  3  A - prawy brzeg
+   0 0 2 1             : B  3  B - lewy brzeg
+   2 2 0 1             : C  5  C - du¿a wyspa
+   1 1 1 0             : D  3  D - ma³a wyspa
+
+Brak cyklu E. d(A),d(B),d(C),d(D) - nieparzyste
+Brak drogi E. d(A),d(B),d(C),d(D) - nieparzyste
+
+Przyk³ad 2 - gwiazda 1   
+                               |V|=4   |E|=6
+ 4                     = n  d
+   0 0 0 1             : A  1  d(X) = stopieñ  
+   0 0 0 2             : B  2  wierzcho³ka X
+   0 0 0 3             : C  3  kolumna 2 to
+   1 2 3 0             : D  6  wartoœci D
+
+Brak cyklu E. d(A),d(C) - nieparzyste
+droga E.: ADCDBDC
+
+Przyk³ad 3 - koperta 1
+                               |V|=5   |E|=8
+ 5                     = n  d
+   0 1 1 1 1           : A  4  n=|V|
+   1 0 1 1 0           : B  3  kolumna 1 to
+   1 1 0 1 0           : C  3  literowe nazwy
+   1 1 1 0 1           : D  4  wierzcho³ków
+   1 0 0 1 0           : E  2
+
+Brak cyklu E. d(B),d(C) - nieparzyste
+droga E.: BAEDCBDAC
+
+Przyk³ad 4 - koperta 2
+                               |V|=5   |E|=9
+ 5                     = n  d
+   0 1 1 1 1           : A  4  do P3 do³o¿ona
+   1 0 2 1 0           : B  4  druga krawêdŸ
+   1 2 0 1 0           : C  4  BC
+   1 1 1 0 1           : D  4
+   1 0 0 1 0           : E  2
+
+cykl E.: ABCDEACBDA
+
+Przyk³ad 5 - dwa cykle 1
+                               |V|=7   |E|=18
+ 7                     = n  d
+   0 0 3 0 0 3 0       : A  6  Nale¿y zacz¹æ
+   0 0 0 2 2 0 0       : B  4  od C (lub D),
+   3 0 0 1 0 3 0       : C  7  ale most CD
+   0 2 1 0 0 0 2       : D  5  przejœæ jako
+   0 2 0 0 0 0 2       : E  4  ostatni z C
+   3 0 3 0 0 0 0       : F  6
+   0 0 0 2 2 0 0       : G  4
+
+Brak cyklu E. d(C),d(D) - nieparzyste
+droga E.: CAFCAFCAFCDBEGDBEGD
+
+
+
+ - Multigraf skierowany.
+
+Przyk³ad 6 - gwiazda 2
+                               |V|=4   |E|=12
+ 4                     = n in out
+   0 0 0 1             : A  1  1   identyczne
+   0 0 0 2             : B  2  2   dane jak P2
+   0 0 0 3             : C  3  3
+   1 2 3 0             : D  6  6
+
+cykl E.: ADBDBDCDCDCDA
+
+Przyk³ad 7 - dwa cykle 2
+                               |V|=7   |E|=36
+ 7                     = n in out
+   0 0 3 0 0 3 0       : A  6  6   identyczne
+   0 0 0 2 2 0 0       : B  4  4   dane jak P5
+   3 0 0 1 0 3 0       : C  7  7   
+   0 2 1 0 0 0 2       : D  5  5   in=in_degree
+   0 2 0 0 0 0 2       : E  4  4   out=out_degree
+   3 0 3 0 0 0 0       : F  6  6
+   0 0 0 2 2 0 0       : G  4  4   in(X)+out(X)=d(X)
+
+cykl E.: ACFACFACDBEGDBEGDGEBDGEBDCAFCAFCAFCFA 
+
+Przyk³ad 8 - dwa cykle 3
+                               |V|=7   |E|=35
+ 7                     = n in out
+   0 0 3 0 0 3 0       : A  6  6   z P7 odrzucono
+   0 0 0 2 2 0 0       : B  4  4   krawêdŸ DC
+   3 0 0 1 0 3 0       : C  6  7
+   0 2 0 0 0 0 2       : D  5  4   Jak z cyklu P7
+   0 2 0 0 0 0 2       : E  4  4   uzyskaæ drogê 
+   3 0 3 0 0 0 0       : F  6  6   w tym zadaniu?
+   0 0 0 2 2 0 0       : G  4  4
+
+Brak cyklu E. in(C)<out(C), out(D)<in(D)
+droga E.: CAFCAFCAFCFACFACFACDBEGDBEGDGEBDGEBD
+
+Przyk³ad 9 - wielokrotny cykl
+                               |V|=9   |E|=28
+ 9                     = n in out
+   0 0 1 0 0 0 0 0 0   : A  1  1   ZnajdŸ inne   
+   0 0 0 0 1 0 0 0 1   : B  2  2   rozwi¹zanie!
+   0 0 0 0 0 3 0 0 0   : C  3  3   Aby istnia³
+   0 2 0 0 1 0 3 0 0   : D  6  6   cykl Eulera
+   0 0 1 0 0 1 0 1 0   : E  3  3   konieczna jest
+   0 0 0 6 0 0 0 0 0   : F  6  6   spójnoœæ w
+   1 0 0 0 1 0 0 0 1   : G  3  3   nieskierowanym
+   0 0 0 0 0 2 0 0 0   : H  2  2   silna spójnoœæ
+   0 0 1 0 0 0 0 1 0   : I  2  2   w skierowanym
+
+   A B C D E F G H I
+
+cykl E.: ACFDBECFDBICFDEHFDGEFDGIHFDGA
+
+Jacek Lembas
+
